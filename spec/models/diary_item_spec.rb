@@ -22,9 +22,24 @@ describe DiaryItem do
     describe "1の場合" do
       before do
         @item.no = 1
+        @item.title = "健康"
       end
 
       it { @item.should be_valid }
     end
   end
+
+  describe "#title" do
+    before do
+      @item.no = 1
+    end
+
+    describe "空の場合" do
+      it { @item.should_not be_valid }
+      it "タイトルのエラーメッセージが表示される" do
+        @item.errors.messages.key? :title
+      end
+    end
+  end
+
 end

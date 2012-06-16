@@ -1,9 +1,14 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
 describe "diary/new.html.erb" do
   before(:each) do
     assign(:diary, stub_model(Diary,
-        :date => Date.new(2012, 6,16)
+        :date => Date.new(2012, 6,16),
+        :diary_items => [
+          DiaryItem.new( :no => 1, :title => "健康"),
+          DiaryItem.new( :no => 2, :title => "家族")
+        ]
         ).as_new_record)
   end
 
@@ -11,10 +16,5 @@ describe "diary/new.html.erb" do
     render
 
     assert_select "h2", "2012-06-16"
-    # assert_select "form", :action => diary_path, :method => "post" do
-    #   assert_select "show#date", :name => "diary[date]"
-    #   assert_select "input#item_title", :name => "item[title]"
-    #   assert_select "input#item_content", :name => "item[content]"
-    # end
   end
 end

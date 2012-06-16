@@ -1,2 +1,11 @@
 <h2><%= @diary.date %></h2>
 
+<%= form_for @diary, :url => { :action => "create" } do |f| %>
+  <% @diary.diary_items.each do |item| %>
+    <%= fields_for "diary[item][]", item do |f2| %>
+      <%= f2.text_field :title %>
+      <%= f2.text_field :content %><br/>
+    <% end %>
+  <% end %>
+  <%= f.submit "Create" %>
+<% end %>

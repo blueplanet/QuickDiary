@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120609081521) do
   create_table "diary_items", :force => true do |t|
     t.integer  "diary_id"
     t.integer  "no"
+    t.string   "title"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -13,7 +13,9 @@ describe Diary do
 
     describe "１件設定されている場合" do
       before do
-        @diary.diary_items.new( :no => 1 )
+        # @diary.diary_items.new( :no => 1, :title => "健康" )
+        item = DiaryItem.new( :no => 1, :title => "健康")
+        @diary.diary_items << item
       end
 
       it { @diary.should be_valid }
