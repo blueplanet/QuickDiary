@@ -16,5 +16,10 @@ describe "diary/new.html.erb" do
     render
 
     assert_select "h2", "2012-06-16"
+
+    assert_select "form" do
+      assert_select "input", :value => "健康"
+      assert_select "input", :value => "家族"
+    end
   end
 end
