@@ -7,18 +7,15 @@ describe Diary do
   end
 
   describe "#diary_items" do
-    describe "設定されてない場合" do
-      it { @diary.should_not be_valid }
+    it "設定されてない場合、検証NG" do
+      @diary.should_not be_valid
     end
 
-    describe "１件設定されている場合" do
-      before do
-        # @diary.diary_items.new( :no => 1, :title => "健康" )
-        item = DiaryItem.new( :no => 1, :title => "健康")
-        @diary.diary_items << item
-      end
+    it "１件設定されている場合、検証OK" do
+      item = DiaryItem.new( :no => 1, :title => "健康")
+      @diary.diary_items << item
 
-      it { @diary.should be_valid }
+      @diary.should be_valid
     end
   end
 end
