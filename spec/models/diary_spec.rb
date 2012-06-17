@@ -17,5 +17,6 @@ describe Diary do
 
       @diary.should be_valid
     end
+
   end
 end
