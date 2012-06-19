@@ -20,5 +20,15 @@ describe DiaryController do
         assigns[:diary].diary_items.length.should == 1
       end
     end
+
+    context "テンプレートがない場合" do
+      it "９個の空アイテムが作成されること" do
+        get 'new'
+
+        assigns[:diary].date.should == Date.today
+        assigns[:diary].diary_items.length.should == 9
+        assigns[:diary].diary_items.all? { |item| item.title == nil }.should be_true
+      end
+    end
   end
 end

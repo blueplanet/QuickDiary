@@ -9,6 +9,10 @@ class DiaryController < ApplicationController
       templates.each do |temp|
         @diary.diary_items << DiaryItem.new( :no => temp.seq, :title => temp.title )
       end
+    else
+      9.times do |index|
+        @diary.diary_items << DiaryItem.new( :no => index )
+      end
     end
   end
 end
