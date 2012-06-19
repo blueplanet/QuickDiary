@@ -1,5 +1,6 @@
 QuickDiary::Application.routes.draw do
   get "diary/new"
+  post 'diary/create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
